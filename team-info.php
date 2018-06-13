@@ -38,8 +38,8 @@
 	</nav>
 	<div class="jumbotron jumbotron-fluid text-center">
 		<br>
-		<div class="container">
-			<div class="row">
+		<div class="container card-deck-wrapper">
+			<div class="card-deck">
 				<div class="card col-lg-4"> <img id="team-pic" src="images/teams/<?php echo $id;?>.png" alt="球队标志">
 					<div class="card-body">
 						<h3 class="card-title">
