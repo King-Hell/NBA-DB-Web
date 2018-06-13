@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NBA数据查询系统</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+<link href="css/default.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <a class="navbar-brand" href="#"><img alt="NBA标志" src="images/nba_logo.png" style="height: 32px;width: 54px;vertical-align: top">NBA数据库</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"> <a class="nav-link" href="index.html">主页 </a> </li>
+      <li class="nav-item active"> <a class="nav-link" href="#">球队</a> </li>
+      <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a> </div>
+      </li>
+      <li class="nav-item"> <a class="nav-link disabled" href="#">Disabled</a> </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="键入搜索内容" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+    </form>
+  </div>
+</nav>
+<br>
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container" id="team-container">
+    <div class="row">
+      <div class="col-xl-6">
+        <h3 class="top"><img src="images/western_logo.png" alt="西部联盟"/> 西部联盟</h3>
+        <table class="table table-hover table-striped team-table">
+          <tbody>
+          <thead>
+            <tr>
+              <th>太平洋赛区</th>
+              <th>西北赛区</th>
+              <th>西南赛区</th>
+            </tr>
+          </thead>
+          <tr>
+            <td><a href="team-info.php?id=9"><img alt="勇士" src="images/teams/9.png"> 勇士</a></td>
+            <td><a href="team-info.php?id=22"><img alt="开拓者" src="images/teams/22.png"> 开拓者</a></td>
+            <td><a href="team-info.php?id=10"><img alt="火箭" src="images/teams/10.png"> 火箭</a></td>
+          </tr>
+          <tr>
+            <td><a href="team-info.php?id=12"><img alt="快船" src="images/teams/12.png"> 快船</a></td>
+            <td><a href="team-info.php?id=25"><img alt="雷霆" src="images/teams/25.png"> 雷霆</a></td>
+            <td><a href="team-info.php?id=3"><img alt="鹈鹕" src="images/teams/3.png"> 鹈鹕</a></td>
+          </tr>
+          <tr>
+            <td><a href="team-info.php?id=13"><img alt="湖人" src="images/teams/13.png"> 湖人</a></td>
+            <td><a href="team-info.php?id=26"><img alt="爵士" src="images/teams/26.png"> 爵士</a></td>
+            <td><a href="team-info.php?id=24"><img alt="马刺" src="images/teams/24.png"> 马刺</a></td>
+          </tr>
+          <tr>
+            <td><a href="team-info.php?id=23"><img alt="国王" src="images/teams/23.png"> 国王</a></td>
+            <td><a href="team-info.php?id=16"><img alt="森林狼" src="images/teams/16.png"> 森林狼</a></td>
+            <td><a href="team-info.php?id=6"><img alt="独行侠" src="images/teams/6.png"> 独行侠</a></td>
+          </tr>
+          <tr>
+            <td><a href="team-info.php?id=21"><img alt="太阳" src="images/teams/21.png"> 太阳</a></td>
+            <td><a href="team-info.php?id=7"><img alt="掘金" src="images/teams/7.png"> 掘金</a></td>
+            <td><a href="team-info.php?id=29"><img alt="灰熊" src="images/teams/29.png"> 灰熊</a></td>
+          </tr>
+            </tbody>
+          
+        </table>
+      </div>
+      <div class="col-xl-6">
+        <h3 class="top"><img src="images/eastern_logo.png" height="45" alt="西部联盟"/> 东部联盟</h3>
+        <table class="table table-hover table-striped team-table">
+          <tbody>
+          <thead>
+            <tr>
+              <th>东南赛区</th>
+              <th>中部赛区</th>
+              <th>大西洋赛区</th>
+            </tr>
+          </thead>
+          <tr>
+            <td><a href="team-info.php?id=14"><img alt="热火" src="images/teams/14.png"> 热火</a></td>
+            <td><a href="team-info.php?id=5"><img alt="骑士" src="images/teams/5.png"> 骑士</a></td>
+            <td><a href="team-info.php?id=28"><img alt="猛龙" src="images/teams/28.png"> 猛龙</a></td>
+          </tr>
+          <tr>
+            <td><a href="team-info.php?id=27"><img alt="奇才" src="images/teams/27.png"> 奇才</a></td>
+            <td><a href="team-info.php?id=11"><img alt="步行者" src="images/teams/11.png"> 步行者</a></td>
+            <td><a href="team-info.php?id=2"><img alt="凯尔特人" src="images/teams/2.png"> 凯尔特人</a></td>
+          </tr>
+          <tr>
+            <td><a href="team-info.php?id=30"><img alt="黄蜂" src="images/teams/30.png"> 黄蜂</a></td>
+            <td><a href="team-info.php?id=15"><img alt="雄鹿" src="images/teams/15.png"> 雄鹿</a></td>
+            <td><a href="team-info.php?id=20"><img alt="76人" src="images/teams/20.png"> 76人</a></td>
+          </tr>
+          <tr>
+            <td><a href="team-info.php?id=19"><img alt="魔术" src="images/teams/19.png"> 魔术</a></td>
+            <td><a href="team-info.php?id=8"><img alt="活塞" src="images/teams/8.png"> 活塞</a></td>
+            <td><a href="team-info.php?id=18"><img alt="尼克斯" src="images/teams/18.png"> 尼克斯</a></td>
+          </tr>
+          <tr>
+            <td><a href="team-info.php?id=1"><img alt="老鹰" src="images/teams/1.png"> 老鹰</a></td>
+            <td><a href="team-info.php?id=4"><img alt="公牛" src="images/teams/4.png"> 公牛</a></td>
+            <td><a href="team-info.php?id=17"><img alt="篮网" src="images/teams/17.png"> 篮网</a></td>
+          </tr>
+            </tbody>
+          
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="text-center col-lg-6 offset-lg-3">
+      <h5 class="copyright">版权信息</h5>
+      <p class="copyright">Copyright &copy; 2018 LiTong. All Rights Reserved. </p>
+      <div id="beian"> <a target="_blank" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" >
+        <p >鲁ICP备18002100号</p>
+        </a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37028202000232"><img src="images/beian.png" style="float:left;" alt="公安部标志"/>
+        <p>鲁公网安备 37028202000232号</p>
+        </a> </div>
+    </div>
+  </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-3.2.1.min.js"></script> 
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/popper.min.js"></script> 
+<script src="js/bootstrap-4.0.0.js"></script>
+</body>
+</html>
