@@ -14,3 +14,6 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 .team-info-2{color:royalblue;text-align: left}
 .team-info-3{text-align: left;line-height: 50px;color:gray;}
 .team-info-4{text-align: left;line-height: 50px;}
+#search-form{padding-right: 2px}
+.table-players td{padding: 0px;vertical-align: baseline;}
+.text-blue{color:royalblue}
