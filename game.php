@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>球员列表</title>
+	<title>赛程信息</title>
 	<!-- Bootstrap -->
 	<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/default.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 				<li class="nav-item"> <a class="nav-link" href="coach-index.php">教练</a>
 				</li>
 			</ul>
-			<form class="form-inline" action="search.php" target="_blank">
+			<form action="search.php" target="_blank" class="form-inline">
 				<div id="search-form" class="input-group col-10">
 					<select class="form-control col-4" name="type">
 						<option value="球员">球员</option>
@@ -38,35 +38,9 @@
 			</form>
 		</div>
 	</nav>
+	<br>
 	<div class="jumbotron jumbotron-fluid text-center">
-		<br>
-
-		<div class="container bg-white">
-			<h2>球员索引表</h2>
-			<small>按姓氏排序</small>
-			<ul id="tab-index" class="nav bg-light nav-pills" role="tablist">
-				<?php 
-			  echo "<li class='nav-item'><a class='nav-link active' href='#pane-A' id='index-A' data-toggle='tab'>A</a></li>";
-			  for($i=1;$i<26;$i++){
-				  $ch=chr($i+65);
-				  echo "<li class='nav-item'><a class='nav-link' href='#pane-$ch' data-toggle='tab'>$ch</a></li>";
-			  }
-			  ?>
-			</ul>
-			<!-- Content Panel -->
-			<div id="tab-content" class="tab-content">
-
-				<div class="tab-pane fade active show" id="pane-A">
-					<p>加载中……</p>
-				</div>
-				<?php 
-			  	 for($i=1;$i<26;$i++){
-				  $ch=chr($i+65);
-				  echo "<div class='tab-pane fade' id='pane-$ch'><p>加载中……</p></div>";
-			  }
-			  ?>
-			</div>
-		</div>
+		
 	</div>
 	<div class="container">
 		<div class="row">
@@ -87,45 +61,6 @@
 
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
-	<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
-	<script src="js/popper.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$( function () {
-			$( '#index-A' ).click()
-		} )
-
-		$( '#tab-index a' ).click( function () {
-			var ch = $( this ).text()
-			$.get( 'query.php', {
-					type: 'player_list',
-					index: ch
-				},
-				function ( response, status, xhr ) {
-					$( '#pane-' + ch ).html( "<table class='table table-players'>\
-					<thead class='thead-light'>\
-						<tr>\
-							<th>头像</th>\
-							<th>姓名</th>\
-							<th>英文名</th>\
-							<th>球队</th>\
-						</tr>\
-					</thead>\
-				</table>" )
-					$( response ).find( 'player' ).each( function () {
-						var tab = $( '#pane-' + ch + ' table' )
-						var id = $( this ).find( 'id' ).text()
-						var text = "<tr>\
-						<td><image alt='球员头像' src='images/player/" + $( this ).find( 'id' ).text() + ".png'></td>\
-						<td><a target='_blank' href='player.php?id=" + id + "'>" + $( this ).find( 'name' ).text() + "</a></td>\
-						<td><a target='_blank' href='player.php?id=" + id + "'>" + $( this ).find( 'english_name' ).text() + "</a></td>\
-						<td><a target='_blank' href='team.php?id=" + $( this ).find( 'team_id' ).text() + "'>" + $( this ).find( 'team_name' ).text() + "</a></td>\</tr>"
-						$( '#pane-' + ch + ' table' ).append( text )
-
-					} )
-				}, 'xml' )
-
-		} )
-	</script>
 </body>
 </html>

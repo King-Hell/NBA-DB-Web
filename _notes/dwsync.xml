@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.html" server="kinghell.cn//NBA/" local="131736769278423919" remote="131736769200000000" Dst="0" />
-<file name="player-index.php" server="kinghell.cn//NBA/" local="131733428771180048" remote="131733433200000000" Dst="0" />
+<file name="index.html" server="kinghell.cn//NBA/" local="131738089847892783" remote="131738089800000000" Dst="0" />
+<file name="player-index.php" server="kinghell.cn//NBA/" local="131738795116347314" remote="131738794800000000" Dst="0" />
 <file name=".gitignore" server="kinghell.cn//NBA/" local="131736370805050631" remote="131736376200000000" Dst="0" />
-<file name="player.php" server="kinghell.cn//NBA/" local="131736768968860367" remote="131736769200000000" Dst="0" />
-<file name="team-index.html" server="kinghell.cn//NBA/" local="131736769408464946" remote="131736769200000000" Dst="0" />
-<file name="team.php" server="kinghell.cn//NBA/" local="131736754970197769" remote="131736769200000000" Dst="0" />
+<file name="player.php" server="kinghell.cn//NBA/" local="131738639419374888" remote="131738640000000000" Dst="0" />
+<file name="team-index.html" server="kinghell.cn//NBA/" local="131738725448049571" remote="131738794800000000" Dst="0" />
+<file name="team.php" server="kinghell.cn//NBA/" local="131738698130977439" remote="131738699400000000" Dst="0" />
+<file name="search.php" server="kinghell.cn//NBA/" local="131738639429111362" remote="131738640000000000" Dst="0" />
+<file name="coach.php" server="kinghell.cn//NBA/" local="131738639401918847" remote="131738640000000000" Dst="0" />
+<file name="query.php" server="kinghell.cn//NBA/" local="131738813728557699" remote="131738838600000000" Dst="0" />
+<file name="coach-index.php" server="kinghell.cn//NBA/" local="131738699126748700" remote="131738699400000000" Dst="0" />
+<file name="game-index.php" server="kinghell.cn//NBA/" local="131738839082388828" remote="131738838600000000" Dst="0" />
+<file name="game.php" server="kinghell.cn//NBA/" local="131738706984494882" remote="131738794800000000" Dst="0" />
 </dwsync>

@@ -8,6 +8,7 @@
 	<!-- Bootstrap -->
 	<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/default.css" rel="stylesheet">
+	<link href="images/ico.ico" rel="shortcut icon">
 </head>
 
 <body>
@@ -22,25 +23,33 @@
 		$id = 9;
 	$result = $mysqli->query( "select * from teams where id=$id" )->fetch_array();
 	$team_name = $result[ 'name' ];
-	$players = $mysqli->query( "select id,name,position,height,weight,TIMESTAMPDIFF(YEAR, born, CURDATE()) as age,draft_year,salary from players where team_name='$team_name'" );
+	$coach_name = $result[ 'head_coach' ];
+	$players = $mysqli->query( "select number,id,name,position,height,weight,TIMESTAMPDIFF(YEAR, born, CURDATE()) as age,draft_year,salary from players where team_name='$team_name' order by salary desc" );
+	$coach_id = $mysqli->query( "select id from coaches where name='$coach_name'" )->fetch_row()[ 0 ];
 	?>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"><a class="navbar-brand" href="#"><img alt="NBA标志"
-                                                                                                         src="images/nba_logo.png"
-                                                                                                         style="height: 32px;width: 54px;vertical-align: top">
-        NBA数据库</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <a class="navbar-brand" href="#"><img alt="NBA标志" src="images/nba_logo.png" style="height: 32px;width: 54px;vertical-align: top"> NBA数据库</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="index.html">主页 </a>
+				<li class="nav-item active"> <a class="nav-link" href="index.html">主页 </a>
 				</li>
-				<li class="nav-item active"><a class="nav-link" href="#">球队</a>
+				<li class="nav-item"> <a class="nav-link" href="team-index.html">球队</a>
 				</li>
-
+				<li class="nav-item"> <a class="nav-link" href="player-index.php">球员</a>
+				</li>
+				<li class="nav-item"> <a class="nav-link" href="coach-index.php">教练</a>
+				</li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="键入搜索内容" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+			<form action="search.php" target="_blank" class="form-inline">
+				<div id="search-form" class="input-group col-10">
+					<select class="form-control col-4" name="type">
+						<option value="球员">球员</option>
+						<option value="球队">球队</option>
+						<option value="教练">教练</option>
+					</select>
+					<input class="form-control col-8" type="search" placeholder="键入搜索内容" name="content" required="true">
+				</div>
+				<button class="btn btn-outline-success col-2" type="submit">搜索</button>
 			</form>
 		</div>
 	</nav>
@@ -48,7 +57,7 @@
 		<br>
 		<div class="container card-deck-wrapper">
 			<div class="card-deck">
-				<div class="card col-lg-4"><img id="team-pic" src="images/teams/<?php echo $id; ?>.png" alt="球队标志">
+				<div class="card col-lg-4"><img id="team-pic" src="images/team/<?php echo $id; ?>.png" alt="球队标志">
 					<div class="card-body">
 						<h3 class="card-title">
 							<?php echo $result['city'], " ", $result['name'] ?>
@@ -65,7 +74,7 @@
 					<div class="card-body">
 						<h4 class="card-title team-info-2">球队信息</h4>
 						<p class="card-text team-info-3">
-							<?php echo '成立时间：', $result['founded'], '年<br>所属地区：', $result['location'], '<br>主场馆：', $result['arena'], '<br>主教练：', $result['head_coach']; ?>
+							<?php echo '成立时间：', $result['founded'], '年<br>所属地区：', $result['location'], '<br>主场馆：', $result['arena'], "<br>主教练：<a href='coach.php?id=$coach_id'>", $result['head_coach'],'</a>'; ?>
 						</p>
 					</div>
 				</div>
@@ -81,35 +90,40 @@
 			</div>
 			<br>
 			<div class="card">
-				<div class="card-header"><h2 class="text-blue">球员资料</h2></div>
+				<div class="card-header">
+					<h2 class="text-blue">球员资料</h2>
+				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-					<table class="table table-hover table-bordered table-striped table-players">
-						<thead class="thead-light">
-						<tr>
-							<th>头像</th>
-							<th>姓名</th>
-							<th>位置</th>
-							<th>身高(cm)</th>
-							<th>体重(kg)</th>
-							<th>年龄</th>
-							<th>选秀年份</th>
-							<th>薪资(万美元)</th>
-							</tr>
-						</thead>
-						<?php
-					while ( $row = $players->fetch_row() ) {
-						echo "<tr>";
-						echo "<td>",'<img width="50" alt="头像" src="images/players/',$row[0],'.png">',"</td>";
-						for($i=1;$i<=7;$i++){
-							if($row[$i]==Null)
-								$row[$i]="-";
-							echo "<td>",$row[$i],"</td>";
-						}
-						echo "</tr>";
-					}
-					?>
-					</table>
+						<table class="table table-hover table-bordered table-striped table-players">
+							<thead class="thead-light">
+								<tr>
+									<th>号码</th>
+									<th>头像</th>
+									<th>姓名</th>
+									<th>位置</th>
+									<th>身高(cm)</th>
+									<th>体重(kg)</th>
+									<th>年龄</th>
+									<th>选秀年份</th>
+									<th>薪资(万美元)</th>
+								</tr>
+							</thead>
+							<?php
+							while ( $row = $players->fetch_row() ) {
+								echo "<tr>";
+								echo "<td>", $row[ 0 ], '</td>';
+								echo "<td>", "<img class='img-thumbnail' alt='头像' src='images/player/$row[1].png'></td>";
+								echo "<td>", '<a href="player.php?id=', $row[ 1 ], '">', $row[ 2 ], '</a></td>';
+								for ( $i = 3; $i <= 8; $i++ ) {
+									if ( $row[ $i ] == Null )
+										$row[ $i ] = "-";
+									echo "<td>", $row[ $i ], "</td>";
+								}
+								echo "</tr>";
+							}
+							?>
+						</table>
 					</div>
 				</div>
 			</div>

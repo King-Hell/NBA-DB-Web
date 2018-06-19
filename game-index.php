@@ -4,11 +4,15 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>球员列表</title>
+	<title>赛程列表</title>
 	<!-- Bootstrap -->
 	<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/default.css" rel="stylesheet">
 	<link href="images/ico.ico" rel="shortcut icon">
+	<script src="https://cdn.bootcss.com/moment.js/2.22.1/moment-with-locales.min.js"></script>
+	<script src="https://cdn.bootcss.com/moment.js/2.22.1/locale/zh-cn.js"></script>
+	<link rel="stylesheet" href="css/pikaday.css">
+	<script src="js/pikaday.js"></script>
 </head>
 
 <body>
@@ -25,7 +29,7 @@
 				<li class="nav-item"> <a class="nav-link" href="coach-index.php">教练</a>
 				</li>
 			</ul>
-			<form class="form-inline" action="search.php" target="_blank">
+			<form action="search.php" target="_blank" class="form-inline">
 				<div id="search-form" class="input-group col-10">
 					<select class="form-control col-4" name="type">
 						<option value="球员">球员</option>
@@ -38,33 +42,41 @@
 			</form>
 		</div>
 	</nav>
+	<br>
 	<div class="jumbotron jumbotron-fluid text-center">
-		<br>
+		<div class="container">
+			<div class="card text-center">
+				<div class="card-header">
+					<h2 class="text-info">赛程查询</h2>
+					<div class="input-group col-4 offset-4">
+						<span class="input-group-text">当前日期</span>
+						<input type="text" class="form-control" id="calendar">
+						<span class="input-group-btn">
+        				<button class="btn btn-success" type="button" id="btn-ser">查询</button>
+      					</span>
+					
 
-		<div class="container bg-white">
-			<h2>球员索引表</h2>
-			<small>按姓氏排序</small>
-			<ul id="tab-index" class="nav bg-light nav-pills" role="tablist">
-				<?php 
-			  echo "<li class='nav-item'><a class='nav-link active' href='#pane-A' id='index-A' data-toggle='tab'>A</a></li>";
-			  for($i=1;$i<26;$i++){
-				  $ch=chr($i+65);
-				  echo "<li class='nav-item'><a class='nav-link' href='#pane-$ch' data-toggle='tab'>$ch</a></li>";
-			  }
-			  ?>
-			</ul>
-			<!-- Content Panel -->
-			<div id="tab-content" class="tab-content">
 
-				<div class="tab-pane fade active show" id="pane-A">
-					<p>加载中……</p>
+
+					</div>
+
+
+
 				</div>
-				<?php 
-			  	 for($i=1;$i<26;$i++){
-				  $ch=chr($i+65);
-				  echo "<div class='tab-pane fade' id='pane-$ch'><p>加载中……</p></div>";
-			  }
-			  ?>
+				<div class="card-body">
+					<table class="table table-hover table-players">
+						<thead>
+							<tr>
+								<th>客队</th>
+								<th>客队比分</th>
+								<th>详情</th>
+								<th>主队比分</th>
+								<th>主队</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="card-footer text-muted" id="card-footer"></div>
 			</div>
 		</div>
 	</div>
@@ -87,45 +99,44 @@
 
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
-	<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
-	<script src="js/popper.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$( function () {
-			$( '#index-A' ).click()
-		} )
+	<script>
+		var picker = new Pikaday( {
+			field: $( '#calendar' )[ 0 ],
+			minDate: new Date( '2017-10-18' ),
+			maxDate: new Date( '2018-06-09' ),
+			defaultDate: new Date( '2018-6-9' ),
+			setDefaultDate: true,
+			onSelect: function () {
 
-		$( '#tab-index a' ).click( function () {
-			var ch = $( this ).text()
+			}
+		} );
+		$( '#btn-ser' ).click( function () {
 			$.get( 'query.php', {
-					type: 'player_list',
-					index: ch
-				},
-				function ( response, status, xhr ) {
-					$( '#pane-' + ch ).html( "<table class='table table-players'>\
-					<thead class='thead-light'>\
-						<tr>\
-							<th>头像</th>\
-							<th>姓名</th>\
-							<th>英文名</th>\
-							<th>球队</th>\
-						</tr>\
-					</thead>\
-				</table>" )
-					$( response ).find( 'player' ).each( function () {
-						var tab = $( '#pane-' + ch + ' table' )
-						var id = $( this ).find( 'id' ).text()
-						var text = "<tr>\
-						<td><image alt='球员头像' src='images/player/" + $( this ).find( 'id' ).text() + ".png'></td>\
-						<td><a target='_blank' href='player.php?id=" + id + "'>" + $( this ).find( 'name' ).text() + "</a></td>\
-						<td><a target='_blank' href='player.php?id=" + id + "'>" + $( this ).find( 'english_name' ).text() + "</a></td>\
-						<td><a target='_blank' href='team.php?id=" + $( this ).find( 'team_id' ).text() + "'>" + $( this ).find( 'team_name' ).text() + "</a></td>\</tr>"
-						$( '#pane-' + ch + ' table' ).append( text )
+				type: 'game_list',
+				date: $( '#calendar' ).val()
+			}, function ( response, status, xhr ) {
+				$( '#card-footer' ).text( '该日有' + $( response ).find( 'game' ).length + '场比赛' )
+				$( response ).find( 'game' ).each( function () {
+					var away_id = $( this ).children( 'away_id' ).text()
+					var home_id = $( this ).children( 'home_id' ).text()
+					var away = $( this ).children( 'away' ).text()
+					var home = $( this ).children( 'home' ).text()
+					var away_score = $( this ).children( 'away_score' ).text()
+					var home_score = $( this ).children( 'home_score' ).text()
+					var id = $( this ).children( 'id' ).text()
+					var text = '<tr><td><a href="team.php?id=' + away_id + '"><img src="images/team/' + away_id + '.png">' + away + '</a></td>' +
+						'<td>' + away_score + '</td>' +
+						'<td><a href="game.php?id=' + id + '">数据统计</a></td>' +
+						'<td>' + home_score + '</td>' +
+						'<td><a href="team.php?id=' + home_id + '"><img src="images/team/' + home_id + '.png">' + home + '</a></td></tr>'
+					$( '.table' ).append( text )
 
-					} )
-				}, 'xml' )
+				} )
 
+			}, 'xml' )
 		} )
 	</script>
+
 </body>
 </html>

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>球员列表</title>
+	<title>搜索结果</title>
 	<!-- Bootstrap -->
 	<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/default.css" rel="stylesheet">
@@ -12,6 +12,33 @@
 </head>
 
 <body>
+	<?php
+	$mysqli = new mysqli( "localhost", "visitor", "1234", "basketballdb" );
+	if ( $mysqli->connect_errno ) {
+		printf( "Connect failed: %s\n", $mysqli->connect_error );
+		exit();
+	}
+
+	if ( isset( $_GET[ "type" ] ) )
+		$type = $_GET[ "type" ];
+	else
+		$type = '球队';
+	if ( isset( $_GET[ "content" ] ) )
+		$content = $_GET[ "content" ];
+	else
+		$content = '勇士';
+	switch ( $type ) {
+		case '球员':
+			$result = $mysqli->query( "select id,name,english_name,team_name from players where name like'%$content%' or english_name like'%$content%'" );
+			break;
+		case '球队':
+			$result = $mysqli->query( "select id,concat(city,' ',name),concat(english_city,' ',english_name) from teams where name ='$content' or english_name ='$content'" );
+			break;
+		case '教练':
+			$result = $mysqli->query( "select id,name,english_name,team_name from coaches where name like'%$content%' or english_name like'%$content%'" );
+			break;
+	}
+	?>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <a class="navbar-brand" href="#"><img alt="NBA标志" src="images/nba_logo.png" style="height: 32px;width: 54px;vertical-align: top"> NBA数据库</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -25,7 +52,7 @@
 				<li class="nav-item"> <a class="nav-link" href="coach-index.php">教练</a>
 				</li>
 			</ul>
-			<form class="form-inline" action="search.php" target="_blank">
+			<form action="search.php" target="_blank" class="form-inline">
 				<div id="search-form" class="input-group col-10">
 					<select class="form-control col-4" name="type">
 						<option value="球员">球员</option>
@@ -38,36 +65,55 @@
 			</form>
 		</div>
 	</nav>
-	<div class="jumbotron jumbotron-fluid text-center">
-		<br>
-
-		<div class="container bg-white">
-			<h2>球员索引表</h2>
-			<small>按姓氏排序</small>
-			<ul id="tab-index" class="nav bg-light nav-pills" role="tablist">
-				<?php 
-			  echo "<li class='nav-item'><a class='nav-link active' href='#pane-A' id='index-A' data-toggle='tab'>A</a></li>";
-			  for($i=1;$i<26;$i++){
-				  $ch=chr($i+65);
-				  echo "<li class='nav-item'><a class='nav-link' href='#pane-$ch' data-toggle='tab'>$ch</a></li>";
-			  }
-			  ?>
-			</ul>
-			<!-- Content Panel -->
-			<div id="tab-content" class="tab-content">
-
-				<div class="tab-pane fade active show" id="pane-A">
-					<p>加载中……</p>
-				</div>
-				<?php 
-			  	 for($i=1;$i<26;$i++){
-				  $ch=chr($i+65);
-				  echo "<div class='tab-pane fade' id='pane-$ch'><p>加载中……</p></div>";
-			  }
-			  ?>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<div class="card text-center">
+			<div class="card-header">
+				<h3>搜索结果</h3>
 			</div>
+			<div class="card-body">
+				<h5 class="card-title">您搜索的内容为：<?php echo $type,"——",$content;?></h5>
+
+				<?php 
+				if($result->num_rows==0)
+					echo "<p class='text-danger'>未找到任何结果，请检查您的输入或减少查询字符数量</p>";
+				else{
+					echo "<table class='table table-hover table-players'><thead class='thead-light'><tr>";
+					switch($type){
+						case '球员':
+							echo "<th>头像</th><th>姓名</th><th>英文名</th><th>球队</th>";
+							$type='player';
+							break;
+						case '球队':
+							echo "<th>队标</th><th>球队名</th><th>英文名</th>";
+							$type='team';
+							break;
+						case '教练':
+							echo "<th>头像</th><th>姓名</th><th>英文名</th><th>球队</th>";
+							$type='coach';
+							break;
+					}
+					echo "</tr></thead>";
+					while($row=$result->fetch_row()){
+						echo "<tr>";
+						echo "<td><a href='$type.php?id=$row[0]'><img alt='图片' height='90px' src='images/$type/$row[0].png'></a></td>";
+						for($i=1;$i<count($row);$i++){
+							echo "<td><a href='$type.php?id=$row[0]'>$row[$i]</a></td>";
+						}
+						echo "</tr>";
+					}
+					echo "</table>";
+				}
+				?>
+
+			</div>
+			<div class="card-footer text-muted">为您找到
+				<?php echo $result->num_rows;?>条结果</div>
 		</div>
 	</div>
+	<br>
 	<div class="container">
 		<div class="row">
 			<div class="text-center col-lg-6 offset-lg-3">
@@ -88,44 +134,6 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
 	<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
-	<script src="js/popper.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$( function () {
-			$( '#index-A' ).click()
-		} )
-
-		$( '#tab-index a' ).click( function () {
-			var ch = $( this ).text()
-			$.get( 'query.php', {
-					type: 'player_list',
-					index: ch
-				},
-				function ( response, status, xhr ) {
-					$( '#pane-' + ch ).html( "<table class='table table-players'>\
-					<thead class='thead-light'>\
-						<tr>\
-							<th>头像</th>\
-							<th>姓名</th>\
-							<th>英文名</th>\
-							<th>球队</th>\
-						</tr>\
-					</thead>\
-				</table>" )
-					$( response ).find( 'player' ).each( function () {
-						var tab = $( '#pane-' + ch + ' table' )
-						var id = $( this ).find( 'id' ).text()
-						var text = "<tr>\
-						<td><image alt='球员头像' src='images/player/" + $( this ).find( 'id' ).text() + ".png'></td>\
-						<td><a target='_blank' href='player.php?id=" + id + "'>" + $( this ).find( 'name' ).text() + "</a></td>\
-						<td><a target='_blank' href='player.php?id=" + id + "'>" + $( this ).find( 'english_name' ).text() + "</a></td>\
-						<td><a target='_blank' href='team.php?id=" + $( this ).find( 'team_id' ).text() + "'>" + $( this ).find( 'team_name' ).text() + "</a></td>\</tr>"
-						$( '#pane-' + ch + ' table' ).append( text )
-
-					} )
-				}, 'xml' )
-
-		} )
-	</script>
 </body>
 </html>

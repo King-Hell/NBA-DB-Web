@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>球员资料</title>
+	<title>教练资料</title>
 	<!-- Bootstrap -->
 	<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/default.css" rel="stylesheet">
@@ -19,13 +19,13 @@
 		exit();
 	}
 	if ( !isset( $_GET[ "id" ] ) ) {
-		$id =3311;
+		$id = 310;
 	} else {
 		$id = $_GET[ "id" ];
 	}
-	$result = $mysqli->query( "select * from players where id=$id" )->fetch_assoc();
-	$team_name=$result['team_name'];
-	$team = $mysqli->query( "select id,city from teams where name='$team_name'" )->fetch_row();
+	$result = $mysqli->query( "select * from coaches where id='$id'" )->fetch_assoc();
+	$name=$result['name'];
+	$team_id = $mysqli->query( "select id from teams where head_coach='$name'" )->fetch_row()[ 0 ];
 	?>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <a class="navbar-brand" href="#"><img alt="NBA标志" src="images/nba_logo.png" style="height: 32px;width: 54px;vertical-align: top"> NBA数据库</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
@@ -54,7 +54,7 @@
 		<div class="container card-deck-wrapper">
 			<div class="card-deck">
 				<div class="card col-lg-4">
-					<img id="player-pic" src="images/player_big/<?php echo $result['id']; ?>.png" alt="球员头像" onerror="src='images/player_big/default.png'">
+					<img id="coach-pic" src="images/coach/<?php echo $result['id']; ?>.png" alt="教练头像">
 					<div class="card-body">
 						<h3 class="card-title">
 							<?php echo $result['name'] ?>
@@ -63,28 +63,24 @@
 							<?php echo $result['english_name']; ?>
 						</h5>
 						<h4><small>
-							<?php echo '<a href="team.php?id=',$team[0],'">',$team[1],$result['team_name'],'队球员</a>'; ?>
+							<?php echo '<a href="team.php?id=',$team_id,'">',$result['team_name'],'主教练</a>'; ?>
 						</small></h4>
-						<p class="lead">
-							<?php echo $result['number'],'号 | ',$result['position']?>
-							</p>
 					
-
 					</div>
 				</div>
 				<div class="card col-lg-4">
 					<div class="card-body">
 						<h4 class="card-title team-info-2">个人信息</h4>
 						<p class="card-text team-info-3">
-							<?php echo '身高：', $result['height'], 'cm<br>体重：', $result['weight'], 'kg<br>出生日期：', $result['born'], '<br>学校：',$result['school'], '<br>国籍：',$result['nationality']; ?>
+							<?php echo '出生日期：', $result['born'], '<br>出生城市：', $result['birthcity'], '<br>高中：', $result['highschool'], '<br>大学：',$result['university']; ?>
 						</p>
 					</div>
 				</div>
 				<div class="card col-lg-4">
 					<div class="card-body">
-						<h4 class="card-title team-info-2">职业生涯</h4>
+						<h4 class="card-title team-info-2">执教经历</h4>
 						<p class="card-text team-info-3">
-							<?php echo '选秀：',$result['draft'],'<br>本赛季薪资：',$result['salary'],'万美元<br>合同：',$result['contract']; ?>
+							<?php echo '执教生涯：',$result['career'],'<br>常规赛：',$result['regular'],'<br>季后赛：',$result['playoff'],'<br>总决赛：',$result['final'],'次<br>总冠军：',$result['champion'],'个<br>最佳教练：',$result['best']; ?>
 						</p>
 					</div>
 				</div>
