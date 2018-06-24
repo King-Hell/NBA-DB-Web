@@ -4,91 +4,153 @@
     height: 20px;
     line-height: 20px
 }
+
 #beian p {
     float: left;
     height: 20px;
     line-height: 20px;
-    margin: 0px 0px 0px 5px;
+    margin: 0 0 0 5px;
     color: #939393
 }
+
 body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
     font-family: Microsoft YaHei, '宋体', Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
 }
+
 .title1 {
     font-size: 3.5rem
 }
+
 #team-container {
     max-width: 80%
 }
 
-@media(max-width:767px) {
-.title1 {
-    font-size: 2rem
+@media (max-width: 767px) {
+    .title1 {
+        font-size: 2rem
+    }
+
+    #team-container {
+        max-width: 100%;
+    }
 }
-#team-container {
-    max-width: 100%;
-}
-}
+
 .copyright {
     color: gray
 }
+
 .top img {
     height: 45px
 }
+
 .team-table img {
     height: 65px
 }
+
 .team-table a {
     color: black;
     text-decoration: none
 }
+
 .team-table a:hover {
     color: red;
     text-decoration: none
 }
+
 #team-pic {
     height: 160px;
     width: 160px;
     align-self: center;
     margin-top: 25px
 }
+
 #coach-pic {
     height: 275px;
     align-self: center;
     margin-top: 25px
 }
+
 #player-pic {
     height: 190px;
     align-self: center;
     margin-top: 25px
 }
+
 .team-info-1 {
     color: gray
 }
+
 .team-info-2 {
     color: royalblue;
     text-align: left
 }
+
 .team-info-3 {
     text-align: left;
     line-height: 50px;
     color: gray;
 }
+.player-info{
+    text-align:left;
+    color:gray;
+    line-height: 35px;
+}
 .team-info-4 {
     text-align: left;
     line-height: 50px;
 }
+
 #search-form {
     padding-right: 2px
 }
+
 .table-players td {
-    padding: 0px;
+    padding: 0;
     vertical-align: baseline;
 }
-.table-players img{
-	height: 90px;
+
+.table-players img {
+    height: 90px;
 }
+
 .text-blue {
     color: royalblue
 }
 
+#player-data {
+    padding: 0;
+    font-size: 40px;
+    vertical-align: bottom;
+}
+
+#player-data img{
+    height: 70px;
+}
+#data{
+    padding-left:0;
+    padding-right:0;
+}
+#data table{
+    padding-left:0;
+    padding-right:0;
+    margin-bottom: 0;
+}
+
+#data .zi{
+    color:black;
+}
+#game-away h2,#game-away p{
+	margin-top: 15px;
+	text-align: left;
+
+}
+#game-home h2,#game-home p{
+	margin-top: 15px;
+	text-align: right;
+}
+#game-mid center{
+	margin-top: 5px;
+}
+.card-player-radar{
+    padding:20px 0 0 0 !important;
+}
