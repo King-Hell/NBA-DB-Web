@@ -257,7 +257,7 @@ $avg_off = $mysqli->query("select * from player_season where player_id=$id and t
             $(this).find('i').toggleClass('zi_doubleUp')
         })
     </script>
-    <script src="js/echarts.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
     <script>
         var myChart = echarts.init($('#player-radar')[0]);
         var option = {
@@ -338,15 +338,15 @@ $avg_off = $mysqli->query("select * from player_season where player_id=$id and t
                     $fg = round($row[4] / $row[5], 3) * 100;
                     $tp = round($row[6] / $row[7], 3) * 100;
                     $ft = round($row[8] / $row[9], 3) * 100;
-                    if($fg!=0.0)
+                    if($row[5]!=0&&$fg!=0.0)
                         echo "{value:$fg,formatter:'{c}%'},";
                     else
                         echo ",";
-                    if($tp!=0.0)
+                    if($row[7]!=0&&$tp!=0.0)
                         echo "{value:$tp,formatter:'{c}%'},";
                     else
                         echo ",";
-                    if($ft!=0.0)
+                    if($row[9]!=0&&$ft!=0.0)
                         echo "{value:$ft,formatter:'{c}%'},";
                     else
                         echo ",";
@@ -365,15 +365,15 @@ $avg_off = $mysqli->query("select * from player_season where player_id=$id and t
                     $fg = round($row[4] / $row[5], 3) * 100;
                     $tp = round($row[6] / $row[7], 3) * 100;
                     $ft = round($row[8] / $row[9], 3) * 100;
-                    if($fg!=0.0)
+                    if($row[5]!=0&&$fg!=0.0)
                         echo "{value:$fg,formatter:'{c}%'},";
                     else
                         echo ",";
-                    if($tp!=0.0)
+                    if($row[7]!=0&&$tp!=0.0)
                         echo "{value:$tp,formatter:'{c}%'},";
                     else
                         echo ",";
-                    if($ft!=0.0)
+                    if($row[9]!=0&&$ft!=0.0)
                         echo "{value:$ft,formatter:'{c}%'},";
                     else
                         echo ",";
@@ -392,15 +392,15 @@ $avg_off = $mysqli->query("select * from player_season where player_id=$id and t
                     $fg = round($row[4] / $row[5], 3) * 100;
                     $tp = round($row[6] / $row[7], 3) * 100;
                     $ft = round($row[8] / $row[9], 3) * 100;
-                    if($fg!=0.0)
+                    if($row[5]!=0&&$fg!=0.0)
                         echo "{value:$fg,formatter:'{c}%'},";
                     else
                         echo ",";
-                    if($tp!=0.0)
+                    if($row[7]!=0&&$tp!=0.0)
                         echo "{value:$tp,formatter:'{c}%'},";
                     else
                         echo ",";
-                    if($ft!=0.0)
+                    if($row[9]!=0&&$ft!=0.0)
                         echo "{value:$ft,formatter:'{c}%'},";
                     else
                         echo ",";
