@@ -264,7 +264,7 @@ if (isset($_COOKIE["player2_id"])) {
                         position:'right',
                     },
 
-                    data:[<?php for($i=8;$i<=22;$i++)echo "$player1[$i],"?>],
+                    data:[<?php for($i=8;$i<=22;$i++)echo "$player2[$i],"?>],
                     xAxisIndex: 1,
                     yAxisIndex: 1,
                 }
