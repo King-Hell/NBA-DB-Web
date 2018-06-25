@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.html" server="kinghell.cn//NBA/" local="131738858625772507" remote="131738860800000000" Dst="0" />
-<file name="player-index.php" server="kinghell.cn//NBA/" local="131738851252089048" remote="131738860800000000" Dst="0" />
-<file name=".gitignore" server="kinghell.cn//NBA/" local="131736370805050631" remote="131736376200000000" Dst="0" />
-<file name="player.php" server="kinghell.cn//NBA/" local="131738860344335415" remote="131738860800000000" Dst="0" />
-<file name="team-index.html" server="kinghell.cn//NBA/" local="131738858607487438" remote="131738860800000000" Dst="0" />
-<file name="team.php" server="kinghell.cn//NBA/" local="131738858617209042" remote="131738860800000000" Dst="0" />
-<file name="search.php" server="kinghell.cn//NBA/" local="131738851279912306" remote="131738860800000000" Dst="0" />
-<file name="coach.php" server="kinghell.cn//NBA/" local="131738851244283792" remote="131738860800000000" Dst="0" />
-<file name="query.php" server="kinghell.cn//NBA/" local="131738813728557699" remote="131738838600000000" Dst="0" />
-<file name="coach-index.php" server="kinghell.cn//NBA/" local="131738851225583735" remote="131738860800000000" Dst="0" />
-<file name="game-index.php" server="kinghell.cn//NBA/" local="131738852559000998" remote="131738860800000000" Dst="0" />
-<file name="game.php" server="kinghell.cn//NBA/" local="131738851248488093" remote="131738860800000000" Dst="0" />
+<file name="coach-index.php" server="kinghell.cn//NBA/" local="131743895376448205" remote="131743895400000000" Dst="0" />
+<file name="coach.php" server="kinghell.cn//NBA/" local="131743895377658571" remote="131743895400000000" Dst="0" />
+<file name="compare.php" server="kinghell.cn//NBA/" local="131743895451996420" remote="131743895400000000" Dst="0" />
+<file name="game-index.php" server="kinghell.cn//NBA/" local="131743895463065485" remote="131743895400000000" Dst="0" />
+<file name="game.php" server="kinghell.cn//NBA/" local="131743895380535170" remote="131743895400000000" Dst="0" />
+<file name="index.html" server="kinghell.cn//NBA/" local="131743895468243741" remote="131743895400000000" Dst="0" />
+<file name="player-index.php" server="kinghell.cn//NBA/" local="131743895478610378" remote="131743895400000000" Dst="0" />
+<file name="player.php" server="kinghell.cn//NBA/" local="131743895482861092" remote="131743895400000000" Dst="0" />
+<file name="query.php" server="kinghell.cn//NBA/" local="131740380244697300" remote="131743895400000000" Dst="0" />
+<file name="rank.php" server="kinghell.cn//NBA/" local="131743895384840624" remote="131743895400000000" Dst="0" />
+<file name="search.php" server="kinghell.cn//NBA/" local="131743895385897034" remote="131743895400000000" Dst="0" />
+<file name="team-index.html" server="kinghell.cn//NBA/" local="131743895489606704" remote="131743895400000000" Dst="0" />
+<file name="team.php" server="kinghell.cn//NBA/" local="131743895387201848" remote="131743895400000000" Dst="0" />
 </dwsync>

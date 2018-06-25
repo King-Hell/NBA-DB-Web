@@ -66,7 +66,7 @@ ORDER BY
             </li>
             <li class="nav-item"><a class="nav-link" href="game-index.php">赛程</a>
             </li>
-        </ul>
+        <li class="nav-item"> <a class="nav-link" href="compare.php">对比</a></li></ul>
         <form action="search.php" target="_blank" class="form-inline">
             <div id="search-form" class="input-group col-10">
                 <select class="form-control col-4" name="type">
@@ -414,7 +414,7 @@ ORDER BY
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/echarts.min.js"></script>
+<script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
 <script>
     var myChart=echarts.init($('#data-compare')[0])
     var option = {

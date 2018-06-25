@@ -41,7 +41,7 @@ $team_id = $mysqli->query("select id from teams where head_coach='$name'")->fetc
             <li class="nav-item"><a class="nav-link" href="player-index.php">球员</a></li>
             <li class="nav-item"><a class="nav-link" href="coach-index.php">教练</a></li>
             <li class="nav-item"><a class="nav-link" href="game-index.php">赛程</a></li>
-        </ul>
+        <li class="nav-item"> <a class="nav-link" href="compare.php">对比</a></li></ul>
         <form action="search.php" target="_blank" class="form-inline">
             <div id="search-form" class="input-group col-10">
                 <select class="form-control col-4" name="type">

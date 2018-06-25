@@ -136,7 +136,7 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
 }
 
-#data .zi{
+#data i{
     color:black;
 }
 #game-away h2,#game-away p{
@@ -153,4 +153,18 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 }
 .card-player-radar{
     padding:20px 0 0 0 !important;
+}
+#btn-compare{
+    position: fixed;
+    width: 100px;
+    right:15px;
+    top:80px;
+}
+#btn-compare img{
+    width:65px;
+	height: 90px;
+	align-self:center
+}
+#btn-compare p{
+    margin: 0 0 0 0 ;
 }
