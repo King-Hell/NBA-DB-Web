@@ -1,0 +1,27 @@
+#left-nav {
+    position: fixed;
+    margin-top: 50px;
+    width: 200px;
+    height: 100%;
+}
+
+#main {
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    padding: 70px 0px 0 250px;
+}
+
+form fieldset {
+    width: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.form-long {
+    width: 500px
+}
+
+#result {
+    margin-left: 50px;
+}
