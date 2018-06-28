@@ -7,8 +7,8 @@
 	<title>球员资料</title>
 	<!-- Bootstrap -->
 	<link href="css/default.css" rel="stylesheet">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="images/ico.ico" rel="shortcut icon">
+	<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/ico.ico" rel="shortcut icon">
 	<link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -55,18 +55,18 @@
 
 	?>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"><a class="navbar-brand" href="#"><img alt="NBA标志"
-                                                                                                         src="images/nba_logo.png"
+                                                                                                         src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/nba_logo.png"
                                                                                                          style="height: 32px;width: 54px;vertical-align: top">
         NBA数据库</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
                 class="navbar-toggler-icon"></span></button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="index.html">主页 </a>
+				<li class="nav-item"><a class="nav-link" href="index.html">主页 </a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="team-index.html">球队</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="player-index.php">球员</a>
+				<li class="nav-item active"><a class="nav-link" href="player-index.php">球员</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="coach-index.php">教练</a>
 				</li>
@@ -91,7 +91,7 @@
 		<div class="container card-deck-wrapper">
 			<div class="card-deck">
 				<div class="card col-lg-4">
-					<img id="player-pic" src="images/player_big/<?php echo $result['id']; ?>.png" alt="球员头像" onerror="src='images/player_big/default.png'">
+					<img id="player-pic" src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/player_big/<?php echo $result['id']; ?>.png" alt="球员头像" onerror="src='https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/player_big/default.png'">
 					<div class="card-body">
 						<h3 class="card-title">
 							<?php echo $result['name'] ?>
@@ -146,9 +146,9 @@
 		<br>
 		<div class="container">
 			<div class="card col-lg-12" id="data">
-				<div id="player-data" class="card-header bg-white"><img alt="球队标志" class="float-left img-thumbnail" src="images/team/<?php echo $team[0] ?>.png"> 当前赛季比赛记录
+				<div id="player-data" class="card-header bg-white"><img alt="球队标志" class="float-left img-thumbnail" src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/team/<?php echo $team[0] ?>.png"> 当前赛季比赛记录
 					<button class="btn btn-info" id="btn-all" data-span="false">展开全部</button>
-					<img alt="球队标志" class="float-right img-thumbnail" src="images/team/<?php echo $team[0] ?>.png">
+					<img alt="球队标志" class="float-right img-thumbnail" src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/team/<?php echo $team[0] ?>.png">
 				</div>
 
 				<?php
@@ -227,13 +227,13 @@
 		</div>
 	</div>
 	<div id="btn-compare" class="card text-center">
-		<div id="player1"><img class="img-thumbnail" alt="球员头像" src="images/player/default.png">
+		<div id="player1"><img class="img-thumbnail" alt="球员头像" src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/player/default.png">
 			<p></p>
 			<div class="btn-group"><button id="player1_add" class="btn col-6 btn-outline-success"><i class="icon-plus"></i></button><button id="player1_delete" class="btn btn-outline-danger col-6"><i class="icon-minus"></i></button>
 			</div>
 		</div>
 		<div class="dropdown-divider"></div>
-		<div id="player2"><img class="img-thumbnail" alt="球员头像" src="images/player/default.png">
+		<div id="player2"><img class="img-thumbnail" alt="球员头像" src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/player/default.png">
 			<p></p>
 			<div class="btn-group"><button id="player2_add" class="btn col-6 btn-outline-success"><i class="icon-plus"></i></button><button id="player2_delete" class="btn btn-outline-danger col-6"><i class="icon-minus"></i></button>
 			</div>
@@ -248,28 +248,28 @@
 					<a target="_blank" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">
 						<p>鲁ICP备18002100号</p>
 					</a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37028202000232"><img
-                                src="images/beian.png" style="float:left;" alt="公安部标志"/>
+                                src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/beian.png" style="float:left;" alt="公安部标志"/>
                         <p>鲁公网安备 37028202000232号</p>
                     </a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.cookie.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	<script>
 		var player1_id;
 		var player2_id;
 
 		function cookie_init() {
 			if ( ( player1_id = $.cookie( 'player1_id' ) ) != null ) {
-				$( '#player1 img' ).attr( 'src', 'images/player/' + player1_id + '.png' );
+				$( '#player1 img' ).attr( 'src', 'https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/player/' + player1_id + '.png' );
 				$( '#player1 p' ).text( $.cookie( 'player1_name' ) );
 			}
 			if ( ( player2_id = $.cookie( 'player2_id' ) ) != null ) {
-				$( '#player2 img' ).attr( 'src', 'images/player/' + player2_id + '.png' );
+				$( '#player2 img' ).attr( 'src', 'https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/player/' + player2_id + '.png' );
 				$( '#player2 p' ).text( $.cookie( 'player2_name' ) );
 			}
 		};
@@ -287,13 +287,13 @@
 		$( '#player1_delete' ).click( function () {
 			$.removeCookie( 'player1_id', {path: '/'} );
 			$.removeCookie( 'player1_name', {path: '/'} );
-			$( '#player1 img' ).attr( 'src', 'images/player/default.png' );
+			$( '#player1 img' ).attr( 'src', 'https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/player/default.png' );
 			$( '#player1 p' ).text( '' );
 		} );
 		$( '#player2_delete' ).click( function () {
 			$.removeCookie( 'player2_id', {path: '/'} );
 			$.removeCookie( 'player2_name', {path: '/'} );
-			$( '#player2 img' ).attr( 'src', 'images/player/default.png' );
+			$( '#player2 img' ).attr( 'src', 'https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/player/default.png' );
 			$( '#player2 p' ).text( '' );
 		} );
 		$( '#btn-all' ).click( function () {

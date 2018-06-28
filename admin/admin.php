@@ -57,8 +57,6 @@ if ($mysqli->connect_errno) {
         <li class="btn list-group-item text-left" id="change-player">修改/删除球员信息</li>
         <li class="btn list-group-item text-left" id="change-coach">修改/删除教练信息</li>
         <li class="btn list-group-item text-left" id="change-team">修改球队信息</li>
-        <li class="btn list-group-item text-left" id="add-game">增加比赛记录</li>
-        <li class="btn list-group-item text-left" id="change-game">修改比赛记录</li>
         <li class="btn list-group-item text-left" id="change-password">修改密码</li>
     </ul>
 </div>

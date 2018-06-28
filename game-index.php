@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>赛程列表</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
-    <link href="images/ico.ico" rel="shortcut icon">
+    <link href="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/ico.ico" rel="shortcut icon">
     <script src="https://cdn.bootcss.com/moment.js/2.22.1/moment-with-locales.min.js"></script>
     <script src="https://cdn.bootcss.com/moment.js/2.22.1/locale/zh-cn.js"></script>
     <link rel="stylesheet" href="css/pikaday.css">
@@ -17,15 +17,13 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"><a class="navbar-brand" href="#"><img alt="NBA标志"
-                                                                                                         src="images/nba_logo.png"
+                                                                                                         src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/nba_logo.png"
                                                                                                          style="height: 32px;width: 54px;vertical-align: top">
         NBA数据库</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"><a class="nav-link" href="index.html">主页 </a>
+            <li class="nav-item"><a class="nav-link" href="index.html">主页 </a>
             </li>
             <li class="nav-item"><a class="nav-link" href="team-index.html">球队</a>
             </li>
@@ -33,7 +31,7 @@
             </li>
             <li class="nav-item"><a class="nav-link" href="coach-index.php">教练</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="game-index.php">赛程</a></li>
+            <li class="nav-item active"><a class="nav-link" href="game-index.php">赛程</a></li>
         <li class="nav-item"> <a class="nav-link" href="compare.php">对比</a></li></ul>
         <form action="search.php" target="_blank" class="form-inline">
             <div id="search-form" class="input-group col-10">
@@ -93,16 +91,16 @@
                     <p>鲁ICP备18002100号</p>
                 </a> <a target="_blank"
                         href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37028202000232"><img
-                            src="images/beian.png" style="float:left;" alt="公安部标志"/>
+                            src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/beian.png" style="float:left;" alt="公安部标志"/>
                     <p>鲁公网安备 37028202000232号</p>
                 </a></div>
         </div>
     </div>
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script>
     var lastDate = null
     var picker = new Pikaday({
@@ -133,11 +131,11 @@
                 var away_score = $(this).children('away_score').text();
                 var home_score = $(this).children('home_score').text();
                 var id = $(this).children('id').text();
-                var text = '<tr><td><a href="team.php?id=' + away_id + '"><img src="images/team/' + away_id + '.png">' + away + '</a></td>' +
+                var text = '<tr><td><a href="team.php?id=' + away_id + '"><img src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/team/' + away_id + '.png">' + away + '</a></td>' +
                     '<td>' + away_score + '</td>' +
                     '<td><a href="game.php?id=' + id + '">数据统计</a></td>' +
                     '<td>' + home_score + '</td>' +
-                    '<td><a href="team.php?id=' + home_id + '"><img src="images/team/' + home_id + '.png">' + home + '</a></td></tr>';
+                    '<td><a href="team.php?id=' + home_id + '"><img src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/team/' + home_id + '.png">' + home + '</a></td></tr>';
                 $('.table').append(text)
 
             })

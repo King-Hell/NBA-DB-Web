@@ -6,26 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>球员列表</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
-    <link href="images/ico.ico" rel="shortcut icon">
+    <link href="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/ico.ico" rel="shortcut icon">
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"><a class="navbar-brand" href="#"><img alt="NBA标志"
-                                                                                                         src="images/nba_logo.png"
+                                                                                                         src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/nba_logo.png"
                                                                                                          style="height: 32px;width: 54px;vertical-align: top">
         NBA数据库</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"><a class="nav-link" href="index.html">主页 </a>
+            <li class="nav-item"><a class="nav-link" href="index.html">主页 </a>
             </li>
             <li class="nav-item"><a class="nav-link" href="team-index.html">球队</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="player-index.php">球员</a>
+            <li class="nav-item active"><a class="nav-link" href="player-index.php">球员</a>
             </li>
             <li class="nav-item"><a class="nav-link" href="coach-index.php">教练</a>
             </li>
@@ -84,16 +82,16 @@
                     <p>鲁ICP备18002100号</p>
                 </a> <a target="_blank"
                         href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37028202000232"><img
-                            src="images/beian.png" style="float:left;" alt="公安部标志"/>
+                            src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/beian.png" style="float:left;" alt="公安部标志"/>
                     <p>鲁公网安备 37028202000232号</p>
                 </a></div>
         </div>
     </div>
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $('#index-A').click()
@@ -120,7 +118,7 @@
                     var tab = $('#pane-' + ch + ' table');
                     var id = $(this).find('id').text();
                     var text = "<tr>\
-						<td><image class='img-thumbnail' alt='球员头像' src='images/player/" + $(this).find('id').text() + ".png'></td>\
+						<td><image class='img-thumbnail' alt='球员头像' src='https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/player/" + $(this).find('id').text() + ".png'></td>\
 						<td><a target='_blank' href='player.php?id=" + id + "'>" + $(this).find('name').text() + "</a></td>\
 						<td><a target='_blank' href='player.php?id=" + id + "'>" + $(this).find('english_name').text() + "</a></td>\
 						<td><a target='_blank' href='team.php?id=" + $(this).find('team_id').text() + "'>" + $(this).find('team_name').text() + "</a></td>\</tr>";

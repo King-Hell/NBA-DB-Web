@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>赛程信息</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
-    <link href="images/ico.ico" rel="shortcut icon">
+    <link href="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/ico.ico" rel="shortcut icon">
 </head>
 
 <body>
@@ -48,15 +48,13 @@ ORDER BY
 	time DESC");
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"><a class="navbar-brand" href="#"><img alt="NBA标志"
-                                                                                                         src="images/nba_logo.png"
+                                                                                                         src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/nba_logo.png"
                                                                                                          style="height: 32px;width: 54px;vertical-align: top">
         NBA数据库</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"><a class="nav-link" href="index.html">主页 </a>
+            <li class="nav-item"><a class="nav-link" href="index.html">主页 </a>
             </li>
             <li class="nav-item"><a class="nav-link" href="team-index.html">球队</a>
             </li>
@@ -64,7 +62,7 @@ ORDER BY
             </li>
             <li class="nav-item"><a class="nav-link" href="coach-index.php">教练</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="game-index.php">赛程</a>
+            <li class="nav-item active"><a class="nav-link" href="game-index.php">赛程</a>
             </li>
         <li class="nav-item"> <a class="nav-link" href="compare.php">对比</a></li></ul>
         <form action="search.php" target="_blank" class="form-inline">
@@ -96,7 +94,7 @@ ORDER BY
         <div class="row">
             <div class="col" id="game-away">
                 <a href="team.php?id=<?php echo $away[0] ?>">
-                    <img class="float-left" src="images/team/<?php echo $away[0] ?>.png" height="100px">
+                    <img class="float-left" src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/team/<?php echo $away[0] ?>.png" height="100px">
                     <h2><?php echo $away[1], $away_name ?></h2>
                     <p>客场：<span class="text-danger"><?php echo $result['away_score'] ?></span>分</p>
                 </a>
@@ -125,7 +123,7 @@ ORDER BY
             </div>
             <div class="col" id="game-home">
                 <a href="team.php?id=<?php echo $home[0] ?>">
-                    <img class="float-right" src="images/team/<?php echo $home[0] ?>.png" height="100px">
+                    <img class="float-right" src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/team/<?php echo $home[0] ?>.png" height="100px">
                     <h2><?php echo $home[1], $home_name ?></h2>
                     <p>主场：<span class="text-danger"><?php echo $result['home_score'] ?></span>分</p>
                 </a>
@@ -150,7 +148,7 @@ ORDER BY
         <div class="card-body">
             <h3 class="text-secondary">
                 <img alt="球队标志" height="50px"
-                     src="images/team/<?php echo $away[0] ?>.png"><?php echo $away[1], $away_name ?>
+                     src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/team/<?php echo $away[0] ?>.png"><?php echo $away[1], $away_name ?>
             </h3>
             <div class="dropdown-divider"></div>
             <table class="table-sm table-bordered table-hover text-center">
@@ -274,7 +272,7 @@ ORDER BY
         <div class="card-body">
             <h3 class="text-secondary">
                 <img alt="球队标志" height="50px"
-                     src="images/team/<?php echo $home[0] ?>.png"><?php echo $home[1], $home_name ?>
+                     src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/team/<?php echo $home[0] ?>.png"><?php echo $home[1], $home_name ?>
             </h3>
             <div class="dropdown-divider"></div>
             <table class="table-sm table-bordered table-hover text-center">
@@ -403,7 +401,7 @@ ORDER BY
                     <p>鲁ICP备18002100号</p>
                 </a> <a target="_blank"
                         href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37028202000232"><img
-                            src="images/beian.png" style="float:left;" alt="公安部标志"/>
+                            src="https://nba-1253437773.cos.ap-beijing.myqcloud.com/images/beian.png" style="float:left;" alt="公安部标志"/>
                     <p>鲁公网安备 37028202000232号</p>
                 </a>
             </div>
@@ -411,9 +409,9 @@ ORDER BY
     </div>
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
 <script>
     var myChart=echarts.init($('#data-compare')[0])
