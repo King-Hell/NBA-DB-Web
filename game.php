@@ -414,7 +414,11 @@ ORDER BY
 <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
 <script>
-    var myChart=echarts.init($('#data-compare')[0])
+    $(document).ready(function () {
+        var myChart=echarts.init($('#data-compare')[0]);
+        myChart.setOption(option);
+    })
+
     var option = {
         title: {
             text: '两队数据对比'
@@ -486,7 +490,7 @@ ORDER BY
             }
         ]
     };
-    myChart.setOption(option)
+
 </script>
 </body>
 </html>
